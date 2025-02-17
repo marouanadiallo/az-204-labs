@@ -7,7 +7,7 @@ Most resources in Azure can be created in the **Azure portal**, via
 
 The quicker and more efficient way to create VMs is **programmatically**, also providing you with the flexibility to create multiples at once should you need to. 
 
-In the following exercises, we will create a **Windows Server 2019 Datacenter VM** and an **Ubuntu Server 19.04 VM**.
+In the following exercises, we will create a **Windows Server 2019 Datacenter VM** and an **Ubuntu Server 24 VM**.
 
 ### Image URNs (URN stand for Uniform Resource Name)
 ----
@@ -25,3 +25,17 @@ We can easily find the **Windows Server 2019 Datacenter SKU** using the followin
 **URN** has the following format : *Publisher:Offer:Sku:Version* (ex. Canonical:UbuntuServer:18.04-LTS:latest).\
 **URN alias** some URN has alias, example:  (UbuntuLTS = Canonical:UbuntuServer:18.04-LTS:latest).
 
+*Manage Azure subscription information command is *:\
+```az account --help```
+
+#### Create VM by using sh script
+----
+Checking the *createVM.sh* file.
+
+*VM details*\
+```az vm show --resource-group vmLab-rg-az204 --name ubunVm-weu-az204 ```\
+```az vm show --resource-group vmLab-rg-az204 --name ubunVm-weu-az204 --query storageProfile.imageReference```
+
+*Delete the resource group and all the resources we just deployed with the following* :\
+```az group delete --name vmLab-rg-az204 -y```\
+*-y (--yes) => for forcing*
